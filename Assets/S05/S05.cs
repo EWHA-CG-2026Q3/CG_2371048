@@ -21,8 +21,8 @@ public class S05 : MonoBehaviour
         canvasTexture = new Texture2D(canvasWidth, canvasHeight);
         canvasTexture.filterMode = FilterMode.Point;
 
-       FillVerticalStripes(patternSize, colorA, colorB); // 실습①
-        // FillCheckerboard(patternSize, colorA, colorB); // 실습②
+       //FillVerticalStripes(patternSize, colorA, colorB); // 실습①
+        FillCheckerboard(patternSize, colorA, colorB); // 실습②
 
         canvasTexture.Apply();
         targetImage.texture = canvasTexture;
@@ -40,5 +40,18 @@ public class S05 : MonoBehaviour
                 canvasTexture.SetPixel(x, y, stripeColor);
         }
     }
+    //실습2 체크무늬
+    private void FillCheckerboard(int size, Color colorA, Color colorB)
+    {
+        for (int x = 0; x < canvasWidth; x++)
+        {
+            for (int y = 0; y < canvasHeight; y++)
+            {
+                bool isColorA = ((x / size) + (y / size)) % 2 == 0;
 
+                Color stripeColor = isColorA ? colorA : colorB;
+                canvasTexture.SetPixel(x, y, stripeColor);
+            }
+        }
+    }
 }
