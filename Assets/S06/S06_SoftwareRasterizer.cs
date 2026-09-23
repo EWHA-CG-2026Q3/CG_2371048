@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class S06_SoftwareRasterizer_Finish : MonoBehaviour
+public class S06_SoftwareRasterizer : MonoBehaviour
 {
     [SerializeField] private int canvasWidth = 256;
     [SerializeField] private int canvasHeight = 256;
