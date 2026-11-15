@@ -1,9 +1,10 @@
 using UnityEngine;
 
+[ExecuteAlways]
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class S12_PyramidMesh : MonoBehaviour
 {
-    void Start()
+    void OnEnable()
     {
         Mesh mesh = new Mesh();
         mesh.name = "S12_Pyramid";
@@ -38,6 +39,7 @@ public class S12_PyramidMesh : MonoBehaviour
         mesh.RecalculateNormals();
         mesh.RecalculateBounds();
 
-        GetComponent<MeshFilter>().mesh = mesh;
+        mesh.hideFlags = HideFlags.DontSave;
+        GetComponent<MeshFilter>().sharedMesh = mesh;
     }
 }

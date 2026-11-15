@@ -1,9 +1,10 @@
 using UnityEngine;
 
+[ExecuteAlways]
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class S04_Mesh3D : MonoBehaviour
 {
-    void Start()
+    void OnEnable()
     {
         Vector3[] vertices = new Vector3[]
         {
@@ -33,7 +34,8 @@ public class S04_Mesh3D : MonoBehaviour
         mesh.triangles = triangles;
         mesh.RecalculateNormals();
 
-        GetComponent<MeshFilter>().mesh = mesh;
+        mesh.hideFlags = HideFlags.DontSave;
+        GetComponent<MeshFilter>().sharedMesh = mesh;
 
         MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
 
