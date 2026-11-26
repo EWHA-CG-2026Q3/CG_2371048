@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
-public class SceneWalker : MonoBehaviour
+public class MidtermSceneWalker : MonoBehaviour
 {
     public Transform cameraTransform;      // 자식으로 둔 카메라 (눈높이)
     public float moveSpeed = 2.5f;         // 걷는 속도 (초당 m)
